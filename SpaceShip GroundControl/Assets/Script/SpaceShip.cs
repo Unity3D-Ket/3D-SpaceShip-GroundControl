@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpaceShip : MonoBehaviour
 {
@@ -69,19 +70,13 @@ public class SpaceShip : MonoBehaviour
         {
             case "Friendly":
                 break;
-            case "Fuel":
-                //TODO - Add Fuel
-                break;
-            case "Damage":
-                //TODO - Minus Fuel
-                break;
-            case "Power1":
-                //TODO
+            case "Completed":
+                SceneManager.LoadScene("1");
                 break;
             default:
                 print("Dead");
+                SceneManager.LoadScene("0");
                 break;
-
         }
     }
 }
