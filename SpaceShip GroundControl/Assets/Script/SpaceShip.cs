@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SpaceShip : MonoBehaviour
+//UNABLE TO FIX
+//There are inconsistent line endings in the 'Assets/spaceShip.cs' script.Some are Mac OS X(UNIX) and some are Windows.
+//This might lead to incorrect line numbers in stacktraces and compiler errors. Many text editors can fix this using Convert Line Endings menu commands.
+//UnityEditor.AssetDatabase:Refresh()
+//SyntaxTree.VisualStudio.Unity.Bridge.<>c:<Refresh>b__11_0()
+//SyntaxTree.VisualStudio.Unity.Bridge.<>c__DisplayClass40_0:<RunOnceOnUpdate>b__0()
+//UnityEditor.EditorApplication:Internal_CallUpdateFunctions()
+
+public class spaceShip : MonoBehaviour
 {
     Rigidbody shipBody;
     AudioSource SFX;
-    [SerializeField] float rotationSpeed = 10f;
-    [SerializeField] float mainSpeed = 10f;
+    [SerializeField] float rotationSpeed = 1f, mainSpeed = 1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,15 +32,14 @@ public class SpaceShip : MonoBehaviour
         shipThrust();
     }
 
-    private void playerInput()
+    public void playerInput()
     {
         shipBody.freezeRotation = true;
-
         float rSpeed = rotationSpeed * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward *rSpeed);
+            transform.Rotate(Vector3.forward * rSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -41,6 +47,7 @@ public class SpaceShip : MonoBehaviour
         }
 
         shipBody.freezeRotation = false;
+
     }
 
     private void shipThrust()
@@ -71,11 +78,11 @@ public class SpaceShip : MonoBehaviour
             case "Friendly":
                 break;
             case "Completed":
-                SceneManager.LoadScene("1");
+                SceneManager.LoadScene(1);
                 break;
             default:
                 print("Dead");
-                SceneManager.LoadScene("0");
+                SceneManager.LoadScene(0);
                 break;
         }
     }

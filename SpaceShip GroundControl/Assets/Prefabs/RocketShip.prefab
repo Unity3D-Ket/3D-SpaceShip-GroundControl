@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 6346418635561706124}
   - component: {fileID: 1770563122}
   - component: {fileID: 7876556957353472508}
-  - component: {fileID: 5771242562335625937}
+  - component: {fileID: 4593601119588876902}
   m_Layer: 0
   m_Name: RocketShip
   m_TagString: Untagged
@@ -331,7 +331,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5771242562335625937
+--- !u!114 &4593601119588876902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,11 +340,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6346418635561706125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d569f5150883e417683f02a75dbc0501, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d32c2d592108420b939569bd013a179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 40
-  mainSpeed: 20
+  rotationSpeed: 45
+  mainSpeed: 35
 --- !u!1 &6346418635834466058
 GameObject:
   m_ObjectHideFlags: 0
