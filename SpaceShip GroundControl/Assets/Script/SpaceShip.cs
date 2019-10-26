@@ -15,8 +15,22 @@ public class spaceShip : MonoBehaviour
 {
     Rigidbody shipBody;
     AudioSource SFX;
-    [SerializeField] float rotationSpeed = 1f, mainSpeed = 1f;
 
+    [Header("Movement")]
+    [SerializeField] float rotationSpeed = 1f;
+    [SerializeField] float mainSpeed = 1f;
+    [Header ("SFX")]
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip completed;
+    [SerializeField] AudioClip dead;
+    [Header("VFX")]
+    [SerializeField] ParticleSystem activation;
+    [SerializeField] ParticleSystem victory;
+    [SerializeField] ParticleSystem death;
+
+    enum playerState {Alive, Dying, Transcending}
+
+    playerState player = playerState.Alive;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +42,14 @@ public class spaceShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerInput();
-        shipThrust();
+        if (player == playerState.Alive)
+        {
+            playerRotationInput();
+            shipThrustInput();
+        }
     }
 
-    public void playerInput()
+    public void playerRotationInput()
     {
         shipBody.freezeRotation = true;
         float rSpeed = rotationSpeed * Time.deltaTime;
@@ -50,7 +67,7 @@ public class spaceShip : MonoBehaviour
 
     }
 
-    private void shipThrust()
+    public void shipThrustInput()
     {
         float mSpeed = mainSpeed * Time.deltaTime;
 
@@ -58,32 +75,69 @@ public class spaceShip : MonoBehaviour
         {
             //print("Spaced Key was Pressed");
             shipBody.AddRelativeForce(Vector3.up * mainSpeed);
-
-            if (!SFX.isPlaying)
-            {
-                SFX.Play();
-            }
-
+            applyThrust();
         }
         else
-        {
+            {
             SFX.Stop();
-        }
+            activation.Stop();
+            }
+    }
+
+    public void applyThrust()
+    {
+        if (!SFX.isPlaying)
+            {
+                SFX.PlayOneShot(mainEngine);
+            }
+
+        activation.Play();
     }
 
     void OnCollisionEnter(Collision tagCollision)
     {
+
+        if (player != playerState.Alive) {return;}
+
         switch (tagCollision.gameObject.tag)
         {
             case "Friendly":
                 break;
             case "Completed":
-                SceneManager.LoadScene(1);
+                completeSequence();
                 break;
             default:
-                print("Dead");
-                SceneManager.LoadScene(0);
+                deadSequence();
                 break;
         }
+    }
+
+    private void completeSequence()
+    {
+        player = playerState.Transcending;
+        SFX.Stop();
+        SFX.PlayOneShot(completed);
+        victory.Play();
+        Invoke("loadScene", 1f);
+    }
+
+    private void deadSequence()
+    {
+        print("Dead");
+        player = playerState.Dying;
+        SFX.Stop();
+        SFX.PlayOneShot(dead);
+        death.Play();
+        Invoke("loadMainLevel", 1f);
+    }
+
+    public void loadMainLevel() //TODO Create & Load Main Menu
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void loadScene()
+    {
+        SceneManager.LoadScene(1);
     }
 }
