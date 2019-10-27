@@ -27,6 +27,8 @@ public class spaceShip : MonoBehaviour
     [SerializeField] ParticleSystem activation;
     [SerializeField] ParticleSystem victory;
     [SerializeField] ParticleSystem death;
+    [Header("Scene Delay")]
+    [SerializeField] float lvlLoadDelay = 1f;
 
     enum playerState {Alive, Dying, Transcending}
 
@@ -74,7 +76,7 @@ public class spaceShip : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             //print("Spaced Key was Pressed");
-            shipBody.AddRelativeForce(Vector3.up * mainSpeed);
+            shipBody.AddRelativeForce(Vector3.up * mainSpeed * Time.deltaTime);
             applyThrust();
         }
         else
@@ -87,11 +89,12 @@ public class spaceShip : MonoBehaviour
     public void applyThrust()
     {
         if (!SFX.isPlaying)
-            {
-                SFX.PlayOneShot(mainEngine);
-            }
+        {
+           SFX.PlayOneShot(mainEngine);
+           activation.Play();
+        }
 
-        activation.Play();
+        
     }
 
     void OnCollisionEnter(Collision tagCollision)
@@ -118,7 +121,7 @@ public class spaceShip : MonoBehaviour
         SFX.Stop();
         SFX.PlayOneShot(completed);
         victory.Play();
-        Invoke("loadScene", 1f);
+        Invoke("loadScene", lvlLoadDelay);
     }
 
     private void deadSequence()
@@ -128,7 +131,7 @@ public class spaceShip : MonoBehaviour
         SFX.Stop();
         SFX.PlayOneShot(dead);
         death.Play();
-        Invoke("loadMainLevel", 1f);
+        Invoke("loadMainLevel", lvlLoadDelay);
     }
 
     public void loadMainLevel() //TODO Create & Load Main Menu
