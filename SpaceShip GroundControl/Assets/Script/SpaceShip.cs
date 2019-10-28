@@ -109,6 +109,9 @@ public class spaceShip : MonoBehaviour
             case "Completed":
                 completeSequence();
                 break;
+            case "Power":
+                //TODO
+                break;
             default:
                 deadSequence();
                 break;
@@ -126,7 +129,7 @@ public class spaceShip : MonoBehaviour
 
     private void deadSequence()
     {
-        print("Dead");
+        //print("Dead");
         player = playerState.Dying;
         SFX.Stop();
         SFX.PlayOneShot(dead);
