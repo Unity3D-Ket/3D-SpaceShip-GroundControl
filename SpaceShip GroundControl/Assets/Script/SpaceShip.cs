@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,6 +31,8 @@ public class spaceShip : MonoBehaviour
     [Header("Scene Delay")]
     [SerializeField] float lvlLoadDelay = 1f;
 
+    bool collisionEnabled = true;
+
     enum playerState {Alive, Dying, Transcending}
 
     playerState player = playerState.Alive;
@@ -49,24 +52,47 @@ public class spaceShip : MonoBehaviour
             playerRotationInput();
             shipThrustInput();
         }
+
+        if (Debug.isDebugBuild)
+        {
+            debugInput();
+        }
+       
+    }
+
+    public void debugInput()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            loadNextLevel();
+        } else if (Input.GetKeyDown(KeyCode.K))
+            {
+                loadPreviousLevel();
+            }else if (Input.GetKeyDown(KeyCode.C))
+                {
+                    collisionEnabled = !collisionEnabled;
+                }
     }
 
     public void playerRotationInput()
     {
-        shipBody.freezeRotation = true;
         float rSpeed = rotationSpeed * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward * rSpeed);
+            manualRotation(rSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward * rSpeed);
+            manualRotation(-rSpeed);
         }
+    }
 
+    public void manualRotation(float rSpeed)
+    {
+        shipBody.freezeRotation = true;
+        transform.Rotate(Vector3.forward * rSpeed);
         shipBody.freezeRotation = false;
-
     }
 
     public void shipThrustInput()
@@ -92,15 +118,13 @@ public class spaceShip : MonoBehaviour
         {
            SFX.PlayOneShot(mainEngine);
            activation.Play();
-        }
-
-        
+        }      
     }
 
     void OnCollisionEnter(Collision tagCollision)
     {
 
-        if (player != playerState.Alive) {return;}
+        if (player != playerState.Alive || !collisionEnabled) {return;}
 
         switch (tagCollision.gameObject.tag)
         {
@@ -118,16 +142,16 @@ public class spaceShip : MonoBehaviour
         }
     }
 
-    private void completeSequence()
+    public void completeSequence()
     {
         player = playerState.Transcending;
         SFX.Stop();
         SFX.PlayOneShot(completed);
         victory.Play();
-        Invoke("loadScene", lvlLoadDelay);
+        Invoke("loadNextLevel", lvlLoadDelay);
     }
 
-    private void deadSequence()
+    public void deadSequence()
     {
         //print("Dead");
         player = playerState.Dying;
@@ -142,8 +166,18 @@ public class spaceShip : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void loadScene()
+    public void loadNextLevel()
     {
-        SceneManager.LoadScene(1);
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        //print(currentScene);
+        int nextScene = currentScene +1;
+        SceneManager.LoadScene(nextScene);
+    }
+
+    public void loadPreviousLevel()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = currentScene -1;
+        SceneManager.LoadScene(nextScene);
     }
 }

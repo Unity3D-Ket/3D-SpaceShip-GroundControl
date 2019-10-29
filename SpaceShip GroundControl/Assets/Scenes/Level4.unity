@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.2
+  m_ReflectionIntensity: 0.28
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20150852, g: 0.22699371, b: 0.26708987, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.24011311, g: 0.2694338, b: 0.31556448, a: 0.28}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -805,8 +805,87 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.231
       objectReference: {fileID: 0}
+    - target: {fileID: 321623128866607676, guid: 68c697e9efa9043d481bac500867f758,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 321623128866607676, guid: 68c697e9efa9043d481bac500867f758,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c697e9efa9043d481bac500867f758, type: 3}
+--- !u!1001 &1918815596
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6106698520756044667, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_Name
+      value: Bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.64099
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -117
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 113.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911456233409369946, guid: 3531c063e30754290a5674d6ba161641,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3531c063e30754290a5674d6ba161641, type: 3}
 --- !u!1001 &2064535435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -927,7 +1006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 204854426, guid: 4639e8a8f6c854130a616ae3321b57cc, type: 3}
       propertyPath: m_Intensity
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 204854426, guid: 4639e8a8f6c854130a616ae3321b57cc, type: 3}
       propertyPath: m_Range
