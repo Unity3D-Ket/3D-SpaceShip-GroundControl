@@ -133,13 +133,11 @@ public class spaceShip : MonoBehaviour
             case "Completed":
                 completeSequence();
                 break;
-            case "Power":
-                //TODO
-                break;
             default:
                 deadSequence();
                 break;
         }
+
     }
 
     public void completeSequence()
@@ -147,6 +145,7 @@ public class spaceShip : MonoBehaviour
         player = playerState.Transcending;
         SFX.Stop();
         SFX.PlayOneShot(completed);
+        death.Stop();
         victory.Play();
         Invoke("loadNextLevel", lvlLoadDelay);
     }
@@ -163,11 +162,13 @@ public class spaceShip : MonoBehaviour
 
     public void loadMainLevel() //TODO Create & Load Main Menu
     {
+        death.Stop();
         SceneManager.LoadScene(0);
     }
 
     public void loadNextLevel()
     {
+        death.Stop();
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         //print(currentScene);
         int nextScene = currentScene +1;
@@ -176,6 +177,7 @@ public class spaceShip : MonoBehaviour
 
     public void loadPreviousLevel()
     {
+        death.Stop();
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = currentScene -1;
         SceneManager.LoadScene(nextScene);

@@ -7,6 +7,8 @@ TagManager:
   - Friendly
   - Completed
   - Wall
+  - Power
+  - Ship
   layers:
   - Default
   - TransparentFX
