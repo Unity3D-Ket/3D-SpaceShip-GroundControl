@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beat The Clock
+  m_Text: 'PRESS START '
 --- !u!1 &8220779987199275798
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 239}
+  m_AnchoredPosition: {x: -130.6, y: 70.6}
   m_SizeDelta: {x: 84.7, y: 84.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8220779987199275785
@@ -271,5 +271,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa2378e9b66d4a74b567e248ea666c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 30
+  startTime: 10
   countdownText: {fileID: 8220779987199275784}

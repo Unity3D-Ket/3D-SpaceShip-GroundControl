@@ -124,11 +124,14 @@ public class spaceShip : MonoBehaviour
     void OnCollisionEnter(Collision tagCollision)
     {
 
-        if (player != playerState.Alive || !collisionEnabled) {return;}
+        if (player != playerState.Alive || !collisionEnabled) { return; }
 
         switch (tagCollision.gameObject.tag)
         {
             case "Friendly":
+                break;
+            case "Power":
+                Debug.Log("Ship has collided with an object");
                 break;
             case "Completed":
                 completeSequence();

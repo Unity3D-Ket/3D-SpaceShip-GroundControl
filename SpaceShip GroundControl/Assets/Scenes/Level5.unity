@@ -1306,6 +1306,51 @@ PrefabInstance:
       propertyPath: startTime
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -77.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 251.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 84.70001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 84.29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779986230665234, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_Text
+      value: Beat the Clock
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71f40c76753fc461dbbbafc1a919f92a, type: 3}
 --- !u!1001 &2064535435

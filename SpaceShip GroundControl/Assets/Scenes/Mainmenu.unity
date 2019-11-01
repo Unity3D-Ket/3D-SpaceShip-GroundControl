@@ -921,25 +921,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8220779987848918714, guid: 71f40c76753fc461dbbbafc1a919f92a,
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
         type: 3}
-      propertyPath: startTime
-      value: 10
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -130.6
+      value: 251.4
       objectReference: {fileID: 0}
     - target: {fileID: 8220779987199275799, guid: 71f40c76753fc461dbbbafc1a919f92a,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 70.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220779986230665234, guid: 71f40c76753fc461dbbbafc1a919f92a,
-        type: 3}
-      propertyPath: m_Text
-      value: 'PRESS START '
+      propertyPath: m_SizeDelta.x
+      value: 84.70001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71f40c76753fc461dbbbafc1a919f92a, type: 3}
@@ -2151,11 +2151,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.231
-      objectReference: {fileID: 0}
-    - target: {fileID: 738694828256376029, guid: d72ae6d2e5f414139895de34626a22cf,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ae6d2e5f414139895de34626a22cf, type: 3}

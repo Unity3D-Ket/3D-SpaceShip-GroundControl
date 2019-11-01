@@ -4,31 +4,20 @@ using UnityEngine;
 
 public class powerPickup : MonoBehaviour
 {
-    void OnCollisionEnter(Collision tagCollision)
+    public void OnTriggerEnter(Collider tagOther)
     {
-        switch (tagCollision.gameObject.tag)
+        Debug.Log("Outside Switch Statement: Object2 was touched");
+
+        switch (tagOther.gameObject.tag)
         {
             case "Ship":
+                Debug.Log("Object2 was touched");
                 FindObjectOfType<CountDownTimer>().addTime();
                 Destroy(gameObject);
                 break;
             default:
                 break;
         }
-
     }
-
-    //public void OnTriggerEnter(Collider tagOther)
-    //{
-    //    switch (tagOther.gameObject.tag)
-    //    {
-    //        case "Ship":
-    //            FindObjectOfType<CountDownTimer>().addTime();
-    //            Destroy(gameObject);
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
 
 }
