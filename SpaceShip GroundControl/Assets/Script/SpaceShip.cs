@@ -4,14 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//UNABLE TO FIX
-//There are inconsistent line endings in the 'Assets/spaceShip.cs' script.Some are Mac OS X(UNIX) and some are Windows.
-//This might lead to incorrect line numbers in stacktraces and compiler errors. Many text editors can fix this using Convert Line Endings menu commands.
-//UnityEditor.AssetDatabase:Refresh()
-//SyntaxTree.VisualStudio.Unity.Bridge.<>c:<Refresh>b__11_0()
-//SyntaxTree.VisualStudio.Unity.Bridge.<>c__DisplayClass40_0:<RunOnceOnUpdate>b__0()
-//UnityEditor.EditorApplication:Internal_CallUpdateFunctions()
-
 public class spaceShip : MonoBehaviour
 {
     Rigidbody shipBody;
@@ -131,13 +123,13 @@ public class spaceShip : MonoBehaviour
             case "Friendly":
                 break;
             case "Power":
-                Debug.Log("Ship has collided with an object");
                 break;
             case "Completed":
                 completeSequence();
                 break;
             default:
-                deadSequence();
+                FindObjectOfType<gameSession>().initiateDeath();
+                //deadSequence(); 
                 break;
         }
 
@@ -153,6 +145,16 @@ public class spaceShip : MonoBehaviour
         Invoke("loadNextLevel", lvlLoadDelay);
     }
 
+    public void resetLvl()
+    {
+        //print("Dead");
+        player = playerState.Dying;
+        SFX.Stop();
+        SFX.PlayOneShot(dead);
+        death.Play();
+        Invoke("loadCurrentSccene", lvlLoadDelay);     
+    }
+
     public void deadSequence()
     {
         //print("Dead");
@@ -163,24 +165,36 @@ public class spaceShip : MonoBehaviour
         Invoke("loadMainLevel", lvlLoadDelay);
     }
 
-    public void loadMainLevel() //TODO Create & Load Main Menu
+    public void loadCurrentSccene()
     {
-        death.Stop();
+        var currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentScene);
+    }
+
+    public void loadMainLevel() 
+    {
         SceneManager.LoadScene(0);
+        FindObjectOfType<gameSession>().resetlives();
+        FindObjectOfType<gameSession>().displayLifeOff();
     }
 
     public void loadNextLevel()
     {
-        death.Stop();
         int currentScene = SceneManager.GetActiveScene().buildIndex;
-        //print(currentScene);
+        print(currentScene);
         int nextScene = currentScene +1;
         SceneManager.LoadScene(nextScene);
+        FindObjectOfType<gameSession>().resetlives();
+
+        if (currentScene == 5)
+        {
+            FindObjectOfType<gameSession>().displayLifeOff();
+        }
+
     }
 
     public void loadPreviousLevel()
     {
-        death.Stop();
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextScene = currentScene -1;
         SceneManager.LoadScene(nextScene);
