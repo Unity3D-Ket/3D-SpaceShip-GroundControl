@@ -129,7 +129,6 @@ public class spaceShip : MonoBehaviour
                 break;
             default:
                 FindObjectOfType<gameSession>().initiateDeath();
-                //deadSequence(); 
                 break;
         }
 
@@ -174,7 +173,6 @@ public class spaceShip : MonoBehaviour
     public void loadMainLevel() 
     {
         SceneManager.LoadScene(0);
-        FindObjectOfType<gameSession>().resetlives();
         FindObjectOfType<gameSession>().displayLifeOff();
     }
 

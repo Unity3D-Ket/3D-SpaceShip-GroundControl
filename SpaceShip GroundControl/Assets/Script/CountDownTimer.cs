@@ -47,8 +47,7 @@ public class CountDownTimer : MonoBehaviour
 
     public static void activateSequence()
     {
-        FindObjectOfType<spaceShip>().deadSequence(); //ERROR Particle repeats 5xs
-        //Debug.Log("Activated?");
+        FindObjectOfType<gameSession>().initiateDeath();
     }
 
     public void addTime()
